@@ -1,0 +1,95 @@
+.destination {
+
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	margin-bottom: 15px;
+
+	&__overlay {
+
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+
+		background-color: transparentize($accent-1, 0.15);
+
+		opacity: 0;
+
+		transition: z-index 0.25s ease,
+		            opacity 0.25s ease;
+
+		.destination:hover & {
+
+			z-index: 1;
+			opacity: 1;
+
+		}
+
+	}
+
+	&__details {
+
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		padding: 0 15px 15px 15px;
+
+	}
+
+	&__user,
+	&__location {
+
+		color: $white;
+
+		transform: translateY(20px);
+
+		.destination__details:hover & {
+
+			transform: translateY(0);
+
+		}
+
+	}
+
+	&__location {
+
+		position: relative;
+		margin-bottom: 20px;
+
+		font-weight: normal;
+
+		transition: transform 0.35s ease;
+
+	}
+
+	&__user {
+
+		line-height: 20px;
+		text-decoration: none;
+
+		opacity: 0;
+
+		transition: opacity 0.35s ease,
+		          transform 0.35s ease;
+
+		.destination__details:hover & {
+
+			opacity: 0.8;
+
+		}
+
+		.destination__details:hover &:hover {
+
+			color: $white;
+
+			opacity: 1;
+
+		}
+
+	}
+
+}

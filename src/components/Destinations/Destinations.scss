@@ -1,0 +1,23 @@
+.destinations {
+
+	padding-top: 40px;
+	padding-bottom: 40px;
+
+	column-count: 3;
+	column-gap: 15px;
+
+	line-height: 0; // Removes child block paddings
+
+	@media screen and (max-width: $mq-tab--lrg) {
+
+		column-count: 2;
+
+	}
+
+	@media screen and (max-width: $mq-mob) {
+
+		column-count: 1;
+
+	}
+
+}

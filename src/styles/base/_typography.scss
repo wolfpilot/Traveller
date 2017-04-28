@@ -1,0 +1,46 @@
+body {
+
+	color: $d-grey;
+
+}
+
+.hyperlink {
+
+	display: inline-block;
+
+	color: $l-grey;
+
+	text-decoration: none;
+
+	transition: color 0.2s linear;
+
+	&--bordered {
+
+		padding-bottom: 5px;
+
+		border-bottom: 1px dotted $l-grey;
+
+	}
+
+	&:hover {
+
+		color: $d-grey;
+
+		.char {
+
+			opacity: 1;
+
+		}
+
+	}
+
+}
+.char {
+
+	color: $red;
+
+	opacity: 0.25;
+
+	transition: opacity 0.2s linear;
+
+}

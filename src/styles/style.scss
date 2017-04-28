@@ -4,9 +4,10 @@
 
 @import "base/variables";
 @import "base/normalize";
+@import "base/base";
+@import "base/typography";
 
-body {
+@import "layout/container";
 
-	background-color: $white;
-
-}
+@import "../components/Layout/index";
+@import "../components/Destinations/index";

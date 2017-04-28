@@ -4,3 +4,28 @@
 
 $black: #000;
 $white: #fff;
+$l-grey: #ccc;
+$d-grey: #252525;
+
+$accent-1: #1ac3f3;
+
+// MISC
+$red: #f35757;
+
+/**
+ * BASE MEDIA QUERY BREAKPOINTS
+ *******************************************/
+
+$mq-mob: 400px!default;
+$mq-mob--sml: 320px!default;
+$mq-mob--lrg: 640px!default;
+
+
+$mq-tab: 768px!default;
+$mq-tab--sml: 765px!default;
+$mq-tab--lrg: 820px!default;
+
+
+$mq-desk: 1024px!default;
+$mq-desk--sml: 960px!default;
+$mq-desk--lrg: 1280px!default;
