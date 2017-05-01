@@ -1,4 +1,4 @@
-.destination {
+.destinations-item {
 
 	position: relative;
 	display: inline-block;
@@ -21,7 +21,7 @@
 		transition: z-index 0.25s ease,
 		            opacity 0.25s ease;
 
-		.destination:hover & {
+		.destinations-item:hover & {
 
 			z-index: 1;
 			opacity: 1;
@@ -47,7 +47,7 @@
 
 		transform: translateY(20px);
 
-		.destination__details:hover & {
+		.destinations-item__details:hover & {
 
 			transform: translateY(0);
 
@@ -76,13 +76,13 @@
 		transition: opacity 0.35s ease,
 		          transform 0.35s ease;
 
-		.destination__details:hover & {
+		.destinations-item__details:hover & {
 
 			opacity: 0.8;
 
 		}
 
-		.destination__details:hover &:hover {
+		.destinations-item__details:hover &:hover {
 
 			color: $white;
 

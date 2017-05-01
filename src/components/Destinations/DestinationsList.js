@@ -8,7 +8,7 @@ const DestinationsList = (props) => {
 	});
 
 	return (
-		<div className="destinations">
+		<div className="destinations-list">
 			{destinationItems}
 		</div>
 	);

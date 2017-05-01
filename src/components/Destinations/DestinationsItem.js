@@ -4,22 +4,22 @@ import { Link } from 'react-router-dom';
 const DestinationsItem = ({destination}) => {
 
 	return (
-		<div className="destination">
+		<div className="destinations-item">
 
-			<img className="destination__image" src={destination.urls.small} />
+			<img className="destinations-item__image" src={destination.urls.small} />
 
-			<div className="destination__overlay">
+			<div className="destinations-item__overlay">
 
-				<div className="destination__details">
+				<div className="destinations-item__details">
 
-					<h2 className="destination__location heading">
+					<h2 className="destinations-item__location heading">
 						{ destination.user.location
 							? destination.user.location
 							: 'Unknown'
 						}
 					</h2>
 
-					<Link className="destination__user hyperlink" to={destination.links.html + "?utm_source=traveller&utm_medium=referral&utm_campaign=api-credit"} target="_blank">
+					<Link className="destinations-item__user hyperlink" to={destination.links.html + "?utm_source=traveller&utm_medium=referral&utm_campaign=api-credit"} target="_blank">
 						Photo by {destination.user.first_name} {destination.user.last_name}
 					</Link>
 
