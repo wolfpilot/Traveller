@@ -7,12 +7,13 @@ import HomePage from './HomePage';
 import PlacesPage from './PlacesPage';
 import NotFoundPage from './NotFoundPage';
 
-// @TODO: Split everything into Header, Main and Footer
+import { Header, Footer } from '../components/Layout';
 
 export default (
 
 	<Router history={history}>
 		<div>
+			<Header />
 			<main className="main">
 				<Switch>
 					<Route exact={true} path="/" component={HomePage} />
@@ -20,6 +21,7 @@ export default (
 					<Route component={NotFoundPage} />
 				</Switch>
 			</main>
+			<Footer />
 		</div>
 	</Router>
 

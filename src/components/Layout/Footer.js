@@ -5,7 +5,9 @@ const Footer = () => {
 
 	return (
 		<footer className="footer">
-			<Link className="footer__credit hyperlink hyperlink--bordered" to="https://unsplash.com/developers" target="_blank">Made with <span className="char char--heart">&#10084;</span> using Unsplash API</Link>
+			<div className="container container--padded">
+				<Link className="footer__credit hyperlink hyperlink--bordered" to="https://unsplash.com/developers" target="_blank">Made with <span className="char char--heart">&#10084;</span> using Unsplash API</Link>
+			</div>
 		</footer>
 	);
 }
