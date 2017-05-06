@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import history from './history';
 
+import App from './App';
 import HomePage from './HomePage';
 import DestinationsPage from './DestinationsPage';
 import NotFoundPage from './NotFoundPage';
@@ -12,7 +13,7 @@ import { Header, Footer } from '../components/Layout';
 export default (
 
 	<Router history={history}>
-		<div>
+		<App>
 			<Header />
 			<main className="main">
 				<Switch>
@@ -22,7 +23,7 @@ export default (
 				</Switch>
 			</main>
 			<Footer />
-		</div>
+		</App>
 	</Router>
 
 );
