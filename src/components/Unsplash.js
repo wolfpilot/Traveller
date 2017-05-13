@@ -21,7 +21,7 @@ export function getCollectionPhotos(id) {
 }
 
 export function searchPhotos(term) {
-	unsplash.search.photos(term, 10)
+	return unsplash.search.photos(term)
 		.then(toJson)
 		.then(json => {
 			return json;
