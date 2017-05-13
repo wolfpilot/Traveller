@@ -1,19 +1,29 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import history from '../../routes/history';
 
 import SearchBar from '../SearchBar';
 
 class Header extends Component {
+	static contextTypes = {
+		router: PropTypes.object,
+	};
+
 	constructor(props) {
 		super(props);
 
+		this.state = { newTerm: '' };
+
 		this.placeholder = "Search destinations";
+
+
 	}
 
 	search(term) {
-		history.push(term ? `/search?term=${term}` : '/');
+		this.setState({ newTerm: term });
+		this.context.router.history.push(term ? `/search/${term}` : '/');
 	}
 
 	render() {

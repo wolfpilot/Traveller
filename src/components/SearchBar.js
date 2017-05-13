@@ -4,13 +4,6 @@ import { render } from 'react-dom';
 export default class SearchBar extends Component {
 	constructor(props) {
 		super(props);
-
-		this.state = { term: '' };
-	}
-
-	onInputChange(term) {
-		this.setState({term});
-		this.props.onSearchTermChange(term);
 	}
 
 	render() {
@@ -21,7 +14,7 @@ export default class SearchBar extends Component {
 					type="text"
 					value={this.props.term}
 					placeholder={this.props.placeholder}
-					onChange={e => this.onInputChange(e.target.value)} />
+					onChange={e => this.props.onSearchTermChange(e.target.value)} />
 			</form>
 		);
 	}
