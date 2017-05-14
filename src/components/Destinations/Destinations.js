@@ -28,7 +28,7 @@ class Destinations extends Component {
 		);
 	}
 
-	componentDidMount() {
+	componentWillMount() {
 		this.collectionSearch(COLLECTION_ID);
 	}
 

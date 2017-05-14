@@ -16,7 +16,7 @@ export default class SearchPage extends Component {
 		}
 	}
 
-	componentDidMount() {
+	componentWillMount() {
 		// Compute state from props
 		this.setState({ searchTerm: this.props.match.params.term });
 		this.getPhotos(this.props.match.params.term);
