@@ -15,7 +15,8 @@ module.exports = {
 	module: {
 		loaders: [
 			{ test: /\.jsx?$/, exclude: /node_modules/,	loader: 'babel-loader' },
-			{ test: /\.(sass|scss)$/, loaders: ['style-loader', 'css-loader', 'sass-loader'] }
+			{ test: /\.(sass|scss)$/, loaders: ['style-loader', 'css-loader', 'sass-loader'] },
+			{ test: /\.svg$/, loaders: [ 'babel-loader', { loader: 'react-svg-loader', query: { jsx: true } }, ] }
 		]
 	},
 	plugins: [

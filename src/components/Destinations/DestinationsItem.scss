@@ -41,13 +41,13 @@
 	}
 
 	&__user,
-	&__location {
+	&__likes {
 
 		color: $white;
 
 		transform: translateY(20px);
 
-		.destinations-item__details:hover & {
+		.destinations-item:hover & {
 
 			transform: translateY(0);
 
@@ -55,18 +55,8 @@
 
 	}
 
-	&__location {
-
-		position: relative;
-		margin-bottom: 20px;
-
-		font-weight: normal;
-
-		transition: transform 0.35s ease;
-
-	}
-
-	&__user {
+	&__user,
+	&__likes {
 
 		line-height: 20px;
 		text-decoration: none;
@@ -76,17 +66,57 @@
 		transition: opacity 0.35s ease,
 		          transform 0.35s ease;
 
-		.destinations-item__details:hover & {
+		.destinations-item:hover & {
 
 			opacity: 0.8;
 
 		}
 
-		.destinations-item__details:hover &:hover {
+		.destinations-item:hover &:hover {
 
 			color: $white;
 
 			opacity: 1;
+
+		}
+
+	}
+
+	&__user {
+
+		display: inline-block;
+		margin-right: 80px;
+
+	}
+
+	&__likes {
+
+		position: absolute;
+		right: 15px;
+		bottom: 15px;
+
+		&:hover {
+
+			svg {
+
+				fill: $white;
+
+			}
+
+		}
+
+		svg {
+
+			display: inline-block;
+			vertical-align: text-top;
+			width: 18px;
+			height: 15px;
+
+			fill: transparent;
+			stroke: $white;
+			stroke-width: 5px;
+
+			transition: fill 0.15s ease-in-out;
 
 		}
 
