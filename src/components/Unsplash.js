@@ -12,6 +12,14 @@ const unsplash = new Unsplash({
 	callbackUrl: CALLBACK_URL
 });
 
+export function getCollection(id) {
+	return unsplash.collections.getCollection(id)
+		.then(toJson)
+		.then(json => {
+			return json;
+		});
+}
+
 export function getCollectionPhotos(id) {
 	return unsplash.collections.getCollectionPhotos(id)
 		.then(toJson)
@@ -20,8 +28,8 @@ export function getCollectionPhotos(id) {
 		});
 }
 
-export function searchPhotos(term) {
-	return unsplash.search.photos(term)
+export function searchPhotos(term, page) {
+	return unsplash.search.photos(term, page)
 		.then(toJson)
 		.then(json => {
 			return json;

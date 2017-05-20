@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import App from '../components/App';
 import HomePage from './HomePage';
 import DestinationsPage from './DestinationsPage';
+import CollectionsPage from './CollectionsPage';
 import SearchPage from './SearchPage';
 import NotFoundPage from './NotFoundPage';
 
@@ -17,6 +18,7 @@ export default (
 				<Route exact={true} path="/" component={HomePage} />
 				<Route path="/destinations" component={DestinationsPage} />
 				<Route path="/search/:term" component={SearchPage} />
+				<Route path="/collections/:id/:name" component={CollectionsPage} />
 				<Route component={NotFoundPage} />
 			</Switch>
 		</main>

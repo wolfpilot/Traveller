@@ -12,11 +12,21 @@ $accent-1: #1ac3f3;
 // MISC
 $red: #f35757;
 
+
 /**
  * BASE MEDIA QUERY BREAKPOINTS
  *******************************************/
 
-$mq-mob: 400px!default;
+$light: 300;
+$reg: 400;
+$bold: 600;
+
+
+/**
+ * BASE MEDIA QUERY BREAKPOINTS
+ *******************************************/
+
+$mq-mob: 480px!default;
 $mq-mob--sml: 320px!default;
 $mq-mob--lrg: 640px!default;
 
