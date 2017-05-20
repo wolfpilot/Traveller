@@ -36,7 +36,6 @@ class Header extends Component {
 				<div className="container container--padded">
 					<h1 className="heading">Where would you like to go today?</h1>
 					<SearchBar onSearchTermChange={search} placeholder={this.placeholder} />
-					<Link to="/destinations" className="hyperlink">No idea, take me somewhere interesting</Link>
 				</div>
 			</header>
 		);
