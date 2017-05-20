@@ -47,19 +47,19 @@ export default class SearchPage extends Component {
 	getPhotos(term) {
 		searchPhotos(term)
 			.then((json) => {
-				try {
-					if (json.errors) {
-						throw new Error(json.errors);
-					}
-					this.setState({
-						destinations: json.results,
-						hasError: false
-					});
+
+				if (json.errors || !json.results.length) {
+					throw new Error(json.errors || 'No photos could be found for this search term.');
 				}
-				catch(e) {
-					console.error(e);
-					this.setState({ hasError: true });
-				}
+
+				this.setState({
+					destinations: json.results,
+					hasError: false
+				});
+
+			}).catch((err) => {
+				console.error(err);
+				this.setState({ hasError: true });
 			});
 	}
 
