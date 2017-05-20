@@ -6,7 +6,7 @@ import { getCollectionPhotos } from '../../components/Unsplash';
 
 import { DestinationsList } from '../../components/Destinations';
 
-export default class CollectionsPage extends Component {
+export default class DestinationsPage extends Component {
 	constructor(props) {
 		super(props);
 

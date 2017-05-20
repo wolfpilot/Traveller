@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import App from '../components/App';
 import HomePage from './HomePage';
-import CollectionsPage from './CollectionsPage';
+import DestinationsPage from './DestinationsPage';
 import SearchPage from './SearchPage';
 import NotFoundPage from './NotFoundPage';
 
@@ -16,7 +16,7 @@ export default (
 			<Switch>
 				<Route exact={true} path="/" component={HomePage} />
 				<Route path="/search/:term" component={SearchPage} />
-				<Route path="/collections/:id/:name" component={CollectionsPage} />
+				<Route path="/destinations/:id/:name" component={DestinationsPage} />
 				<Route component={NotFoundPage} />
 			</Switch>
 		</main>

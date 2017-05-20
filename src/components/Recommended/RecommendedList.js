@@ -2,13 +2,13 @@ import React from 'react';
 
 import { RecommendedItem } from './';
 
-const RecommendedList = ({collections}) => {
+const RecommendedList = ({destinations}) => {
 
-	const listItems = collections.map((collection) => {
+	const listItems = destinations.map((destination) => {
 
 		return <RecommendedItem
-			key={collection.id}
-			collection={collection} />
+			key={destination.id}
+			destination={destination} />
 	});
 
 	return (

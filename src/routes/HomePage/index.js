@@ -4,22 +4,23 @@ import { render } from 'react-dom';
 import { getCollection } from '../../components/Unsplash';
 import { Recommended } from '../../components/Recommended';
 
-const COLLECTIONS =	[
+// Unsplash collections
+const DESTINATIONS =	[
 	{
 		id: 617608,
-		destination: "Peru"
+		name: "Peru"
 	},
 	{
 		id: 827138,
-		destination: "Thailand"
+		name: "Thailand"
 	},
 	{
 		id: 625298,
-		destination: "Greece"
+		name: "Greece"
 	},
 	{
 		id: 617675,
-		destination: "Australia"
+		name: "Australia"
 	}
 ];
 
@@ -28,17 +29,17 @@ export default class HomePage extends Component {
 		super(props);
 
 		this.state = {
-			collections: []
+			destinations: []
 		}
 	}
 
 	componentWillMount() {
 
-		var collections = [];
+		var destinations = [];
 
-		COLLECTIONS.map((collection) => {
+		DESTINATIONS.map((destination) => {
 
-			getCollection(collection.id).then((json) => {
+			getCollection(destination.id).then((json) => {
 
 				if (json.errors) {
 
@@ -47,11 +48,11 @@ export default class HomePage extends Component {
 				} else {
 
 					// Add new key/value pair to array
-					json.destination = collection.destination;
+					json.name = destination.name;
 
-					collections.push(json);
+					destinations.push(json);
 
-					this.setState({ collections: collections });
+					this.setState({ destinations: destinations });
 
 				}
 
@@ -66,7 +67,7 @@ export default class HomePage extends Component {
 	render() {
 		return (
 			<div className="container container--padded">
-				<Recommended collections={this.state.collections} />
+				<Recommended destinations={this.state.destinations} />
 			</div>
 		);
 	}
