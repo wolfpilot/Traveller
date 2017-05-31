@@ -35,6 +35,7 @@ body {
 	}
 
 }
+
 .char {
 
 	color: $red;
@@ -42,5 +43,11 @@ body {
 	opacity: 0.25;
 
 	transition: opacity 0.2s linear;
+
+}
+
+.title {
+
+	text-transform: capitalize;
 
 }

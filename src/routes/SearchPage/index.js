@@ -4,14 +4,20 @@ import { Link } from 'react-router-dom';
 
 import { searchPhotos } from '../../components/Unsplash';
 import { DestinationsList } from '../../components/Destinations';
+import Pager from '../../components/Pager/';
 
 export default class SearchPage extends Component {
 	constructor(props) {
 		super(props);
 
+		// @TODO: Fix page state not reverting to 1
+		// @TODO: upon searching for new terms.
+
 		this.state = {
 			searchTerm: '',
 			destinations: [],
+			page: 1,
+			totalPages: 1,
 			hasError: false
 		}
 	}
@@ -25,27 +31,36 @@ export default class SearchPage extends Component {
 
 	componentWillReceiveProps(nextProps) {
 
-		this.setState({ searchTerm: nextProps.match.params.term });
-		this.getPhotos(nextProps.match.params.term);
+		if (nextProps.location.search) {
+
+			this.setState({
+				page: parseInt(nextProps.location.search.replace("?page=", "")),
+				searchTerm: nextProps.match.params.term
+			});
+		} else {
+			this.setState({ searchTerm: nextProps.match.params.term });
+		}
+
+		this.getPhotos(nextProps.match.params.term, nextProps.location.search.replace("?page=", ""));
 
 	}
 
 	render() {
 		return (
 			<div className="container container--padded">
-				<h2>{this.state.searchTerm}</h2>
+				<h2 className="title">{this.state.searchTerm}</h2>
 				<Link to="/" className="btn btn--link">Go back home?</Link>
-				<DestinationsList destinations={this.state.destinations} />
 				{ this.state.hasError
 					? <p className="copy">No photos could be found for this search term.</p>
-					: null
+					: <DestinationsList destinations={this.state.destinations} />
 				}
+				<Pager totalPages={this.state.totalPages} page={this.state.page} term={this.state.searchTerm} />
 			</div>
 		);
 	}
 
-	getPhotos(term) {
-		searchPhotos(term)
+	getPhotos(term, page) {
+		searchPhotos(term, page)
 			.then((json) => {
 
 				if (json.errors || !json.results.length) {
@@ -54,6 +69,7 @@ export default class SearchPage extends Component {
 
 				this.setState({
 					destinations: json.results,
+					totalPages: json.total_pages,
 					hasError: false
 				});
 
