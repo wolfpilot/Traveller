@@ -95,11 +95,28 @@
 		right: 15px;
 		bottom: 15px;
 
+		background-color: transparent;
+		outline: none;
+		border: none;
+
+		cursor: pointer;
+
 		&:hover {
 
 			svg {
 
 				fill: $white;
+
+			}
+
+		}
+
+		&.is-liked {
+
+			svg {
+
+				fill: $red;
+				stroke: $red;
 
 			}
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { Link } from 'react-router-dom';
 
-import { searchPhotos } from '../../components/Unsplash';
+import { searchPhotos, likePhoto, unlikePhoto } from '../../components/Unsplash';
 import { DestinationsList } from '../../components/Destinations';
 import Pager from '../../components/Pager/';
 
@@ -52,7 +52,7 @@ export default class SearchPage extends Component {
 				<Link to="/" className="btn btn--link">Go back home?</Link>
 				{ this.state.hasError
 					? <p className="copy">No photos could be found for this search term.</p>
-					: <DestinationsList destinations={this.state.destinations} />
+					: <DestinationsList destinations={this.state.destinations} onLike={this.onLike} />
 				}
 				<Pager totalPages={this.state.totalPages} page={this.state.page} term={this.state.searchTerm} />
 			</div>
@@ -77,6 +77,39 @@ export default class SearchPage extends Component {
 				console.error(err);
 				this.setState({ hasError: true });
 			});
+	}
+
+	// @TODO: Liking/unliking photos updates the state for the entire destinations array.
+	// @TODO: Find a way to update the state for only one photo.
+
+	onLike = (destination) => {
+
+		if (destination.liked_by_user) {
+
+			unlikePhoto(destination.id)
+				.then((json) => {
+
+					// Update the search results and state
+					this.getPhotos(this.props.match.params.term);
+
+				}).catch((err) => {
+					console.log(err);
+				});
+
+		} else {
+
+			likePhoto(destination.id)
+				.then((json) => {
+
+					// Update the search results and state
+					this.getPhotos(this.props.match.params.term);
+
+				}).catch((err) => {
+					console.log(err);
+				});
+
+		}
+
 	}
 
 }
