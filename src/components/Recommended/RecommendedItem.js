@@ -8,13 +8,12 @@ const RecommendedItem = ({destination}) => {
 		<Link
 			className="recommended-item"
 			to={{
-				pathname: `/destinations/${destination.id}/${destination.name}`,
-				state: { name: destination.name }
+				pathname: `/destinations/${destination.id}/${destination.title}`
 			}}
 			style={{backgroundImage: 'url(' + destination.cover_photo.urls.regular + ')'}}>
 
 			<h2 className="recommended-item__title">
-				{destination.name}
+				{destination.title}
 			</h2>
 			<p className="recommended-item__cta">
 				See photos

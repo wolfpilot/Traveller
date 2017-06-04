@@ -35,29 +35,22 @@ export default class HomePage extends Component {
 
 	componentWillMount() {
 
-		DESTINATIONS.map((destination) => {
+		var promiseAll = Promise.all(
 
-			getCollection(destination.id).then((json) => {
+			DESTINATIONS.map((destination) => {
+				return getCollection(destination.id);
+			})
 
-				if (json.errors) {
+		).then(json => {
 
-					throw new Error(json.errors);
+			if (json.errors) {
+				throw new Error(json.errors);
+			} else {
+				this.setState({ destinations: json });
+			}
 
-				} else {
-
-					// Add new key/value pair to array
-					json.name = destination.name;
-
-					this.setState({
-						destinations: this.state.destinations.concat([json])
-					});
-
-				}
-
-			}).catch((err) => {
-				console.error(err);
-			});
-
+		}).catch((err) => {
+			console.error(err);
 		});
 
 	}
