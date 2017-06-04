@@ -35,8 +35,6 @@ export default class HomePage extends Component {
 
 	componentWillMount() {
 
-		var destinations = [];
-
 		DESTINATIONS.map((destination) => {
 
 			getCollection(destination.id).then((json) => {
@@ -50,9 +48,9 @@ export default class HomePage extends Component {
 					// Add new key/value pair to array
 					json.name = destination.name;
 
-					destinations.push(json);
-
-					this.setState({ destinations: destinations });
+					this.setState({
+						destinations: this.state.destinations.concat([json])
+					});
 
 				}
 
