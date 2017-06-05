@@ -90,7 +90,7 @@ export default class SearchPage extends Component {
 				.then((json) => {
 
 					// Update the search results and state
-					this.getPhotos(this.props.match.params.term);
+					this.getPhotos(this.props.match.params.term, this.state.page);
 
 				}).catch((err) => {
 					console.log(err);
@@ -102,7 +102,7 @@ export default class SearchPage extends Component {
 				.then((json) => {
 
 					// Update the search results and state
-					this.getPhotos(this.props.match.params.term);
+					this.getPhotos(this.props.match.params.term, this.state.page);
 
 				}).catch((err) => {
 					console.log(err);
