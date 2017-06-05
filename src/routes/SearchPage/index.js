@@ -10,8 +10,9 @@ export default class SearchPage extends Component {
 	constructor(props) {
 		super(props);
 
-		// @TODO: Fix page state not reverting to 1
-		// @TODO: upon searching for new terms.
+		// @TODO: Fix getPhotos promise sometimes returning new results
+		// @TODO: Perhaps store loaded destinations as state
+		// @TODO: and return them again when loading already visited pages?
 
 		this.state = {
 			searchTerm: '',
@@ -23,6 +24,7 @@ export default class SearchPage extends Component {
 	}
 
 	componentWillMount() {
+
 		// Compute state from props
 		this.setState({ searchTerm: this.props.match.params.term });
 		this.getPhotos(this.props.match.params.term);
@@ -31,17 +33,29 @@ export default class SearchPage extends Component {
 
 	componentWillReceiveProps(nextProps) {
 
-		if (nextProps.location.search) {
+		// If not on the same page, get new photos
+		if (nextProps.location.search && (parseInt(nextProps.location.search.replace("?page=", "")) !== this.state.page)) {
 
 			this.setState({
-				page: parseInt(nextProps.location.search.replace("?page=", "")),
-				searchTerm: nextProps.match.params.term
+				searchTerm: nextProps.match.params.term,
+				page: parseInt(nextProps.location.search.replace("?page=", ""))
 			});
-		} else {
-			this.setState({ searchTerm: nextProps.match.params.term });
+
+			this.getPhotos(nextProps.match.params.term, nextProps.location.search.replace("?page=", ""));
+
 		}
 
-		this.getPhotos(nextProps.match.params.term, nextProps.location.search.replace("?page=", ""));
+		// If different search term, get new photos
+		if (nextProps.match.params.term !== this.state.searchTerm) {
+
+			this.setState({
+				searchTerm: nextProps.match.params.term,
+				page: 1
+			});
+
+			this.getPhotos(nextProps.match.params.term);
+
+		}
 
 	}
 
@@ -78,9 +92,6 @@ export default class SearchPage extends Component {
 				this.setState({ hasError: true });
 			});
 	}
-
-	// @TODO: Liking/unliking photos updates the state for the entire destinations array.
-	// @TODO: Find a way to update the state for only one photo.
 
 	onLike = (destination) => {
 
