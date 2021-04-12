@@ -13,7 +13,7 @@
     "start": "node server/server.prod.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Razvan Negrea <howl@wolfpilot.co.uk> (www.wolfpilot.co.uk)",
+  "author": "Razvan Negrea <howl@wolfpilot.co> (www.wolfpilot.co)",
   "license": "MIT",
   "keywords": [
     "react",
