@@ -46,7 +46,7 @@
     "react-svg-loader": "^3.0.3",
     "sass-loader": "^6.0.7",
     "style-loader": "^0.16.1",
-    "unsplash-js": "^4.8.0",
+    "unsplash-js": "^6.3.0",
     "webpack": "^2.7.0"
   },
   "devDependencies": {
